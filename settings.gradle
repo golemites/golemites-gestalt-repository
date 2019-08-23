@@ -1,0 +1,3 @@
+rootProject.name = 'golemites-gestalt-repository'
+include 'gestalt-webapp-simple'
+enableFeaturePreview("GRADLE_METADATA")

@@ -1,0 +1,42 @@
+buildscript {
+    repositories {
+		mavenCentral()
+	}
+}
+
+plugins {
+	id 'maven-publish'
+}
+
+allprojects {
+	group "org.golemites.gestalt.repository"
+	version "0.1.0-SNAPSHOT"
+}
+
+subprojects {
+	apply plugin: 'maven-publish'
+	apply plugin: 'java-library'
+
+	compileJava {
+		sourceCompatibility = JavaVersion.VERSION_1_8
+		targetCompatibility = JavaVersion.VERSION_1_8
+		options.compilerArgs += '-parameters'
+	}
+
+	repositories {
+		mavenLocal()
+		mavenCentral()
+	}
+	publishing {
+		publications {
+			mavenJava(MavenPublication) {
+				from components.java
+			}
+		}
+		repositories {
+			mavenLocal()
+		}
+	}
+}
+
+
