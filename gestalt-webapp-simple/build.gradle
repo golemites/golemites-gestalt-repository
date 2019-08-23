@@ -25,7 +25,7 @@ repositories {
 }
 
 febo {
-    packageName = 'org.golemites.example'
+    packageName = 'org.golemites.gestalt.webapp.simple'
     buildBaseline = true
     buildRepository = true
 }
