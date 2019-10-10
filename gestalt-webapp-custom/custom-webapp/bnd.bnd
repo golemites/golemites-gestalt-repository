@@ -1,0 +1,4 @@
+Bundle-SymbolicName: example2
+Export-Package: org.golemites.gestalt.webapp.example
+Import-Package: *
+Bundle-Activator: org.golemites.gestalt.webapp.example.Activator

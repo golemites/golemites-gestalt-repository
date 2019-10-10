@@ -8,12 +8,10 @@ plugins {
 	id 'maven-publish'
 }
 
+
 allprojects {
 	group "org.golemites.gestalt.repository"
 	version "0.1.0-SNAPSHOT"
-}
-
-subprojects {
 	apply plugin: 'maven-publish'
 	apply plugin: 'java-library'
 
@@ -26,7 +24,11 @@ subprojects {
 	repositories {
 		mavenLocal()
 		mavenCentral()
+		maven { url 'https://repo.gradle.org/gradle/libs-releases' }
 	}
+}
+
+subprojects {
 	publishing {
 		publications {
 			mavenJava(MavenPublication) {

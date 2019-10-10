@@ -1,0 +1,36 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "biz.aQute.bnd:biz.aQute.bnd.gradle:4.3.0"
+    }
+}
+
+apply plugin: 'biz.aQute.bnd.builder'
+
+compileJava {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+    options.compilerArgs += '-parameters'
+}
+
+dependencies {
+    api(group: "org.osgi", name: "osgi.core", version: '7.0.0', transitive: false)
+    api(group: "org.osgi", name: "osgi.cmpn", version: '7.0.0', transitive: false)
+    api(group: 'org.osgi', name: 'org.osgi.annotation.bundle', version: '1.0.0', transitive: false)
+    api 'org.slf4j:slf4j-api:1.7.28'
+    // JUnit 5 Extensions
+    testImplementation 'org.golemites:golemites-test-support:0.1.0-SNAPSHOT'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.5.1'
+    testRuntimeOnly 'org.apache.logging.log4j:log4j-core:2.11.1'
+    testRuntimeOnly 'org.apache.logging.log4j:log4j-slf4j-impl:2.11.1'
+    testCompile 'org.assertj:assertj-core:3.13.2'
+}
+
+test {
+    useJUnitPlatform()
+}
