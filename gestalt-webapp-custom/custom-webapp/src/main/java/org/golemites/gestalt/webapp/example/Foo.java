@@ -16,6 +16,6 @@ public class Foo {
     public void sayHello(BundleContext bc)
     {
         LOG.error("Here!!! ");
-        System.out.println("Hello2!");
+        System.out.println("Hello3!");
     }
 }

@@ -20,10 +20,6 @@ compileJava {
     options.compilerArgs += '-parameters'
 }
 
-repositories {
-    mavenCentral()
-}
-
 febo {
     packageName = 'org.golemites.gestalt.webapp.simple'
     buildBaseline = true

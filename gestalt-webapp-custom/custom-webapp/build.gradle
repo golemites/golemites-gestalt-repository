@@ -19,6 +19,8 @@ compileJava {
 dependencies {
     api(group: "org.osgi", name: "osgi.core", version: '7.0.0', transitive: false)
     api(group: "org.osgi", name: "osgi.cmpn", version: '7.0.0', transitive: false)
+    api(group: "org.apache.aries.spec", name: "org.apache.aries.javax.jax.rs-api", version: "1.0.0", transitive: false)
+
     api(group: 'org.osgi', name: 'org.osgi.annotation.bundle', version: '1.0.0', transitive: false)
     api 'org.slf4j:slf4j-api:1.7.28'
     // JUnit 5 Extensions

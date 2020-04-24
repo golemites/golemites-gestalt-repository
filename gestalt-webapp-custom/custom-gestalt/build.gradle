@@ -2,6 +2,7 @@ buildscript {
     repositories {
         mavenCentral()
         mavenLocal()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     }
     dependencies {
         classpath "org.golemites:golemites-gradle-plugin:${project.version}"
@@ -11,7 +12,7 @@ buildscript {
 apply plugin: 'org.golemites.application.plugin'
 
 golemites {
-    pushTo = org.golemites.api.PushTarget.NONE
+    pushTo = org.golemites.api.PushTarget.REGISTRY
     repository = "eu.gcr.io/golemite/${project.name}"
     name = project.name
 }
@@ -33,19 +34,5 @@ dependencies {
     repository 'org.apache.felix:org.apache.felix.http.jetty:4.0.14'
     repository 'org.apache.aries.jax.rs:org.apache.aries.jax.rs.whiteboard:1.0.5'
     repository project(':gestalt-webapp-custom:custom-webapp')
-
-
-    /**
-     api(group: "org.golemites", name: "golemites-api", version: "0.1.0-SNAPSHOT", transitive: false)
-
-     // Should be automatic
-     baseline(group: "org.osgi", name: "org.osgi.service.jaxrs", version: '1.0.0', transitive: false)
-     baseline(group: "org.osgi", name: "osgi.core", version: '7.0.0', transitive: false)
-     baseline(group: "org.osgi", name: "osgi.cmpn", version: '7.0.0', transitive: false)
-     baseline(group: "org.apache.aries.spec", name: "org.apache.aries.javax.jax.rs-api", version: "1.0.0", transitive: false)
-     baseline(group: 'org.osgi', name: 'org.osgi.annotation.bundle', version: '1.0.0', transitive: false)
-     baseline(group: "org.golemites", name: "golemites-api", version: "0.1.0-SNAPSHOT", transitive: false)
-     baseline 'org.slf4j:slf4j-api:1.7.28'
-     **/
 }
 
